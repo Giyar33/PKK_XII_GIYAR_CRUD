@@ -59,7 +59,20 @@ function upload(){
         echo "<script>alert('yang anda upload bukan gambar');</script>";
     }
 
-    //
+    //cek jika filenya ukuranya terlalu besar
+    if ($ukuranFile > 1000000){
+        echo "<script>alert('yang anda upload terlalu besar!');</script>";
+        return false;
+    }
+
+    //lolos pengecekan, gambar siap di uplod
+    //dan generate nama baru
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= '.';
+    $namaFileBaru .= $ekstensiGambar;
+
+    move_uploaded_file($tmpName, 'img/' . $namaFileBaru);
+    return $namaFileBaru;
 }
 
 function hapus($id)
