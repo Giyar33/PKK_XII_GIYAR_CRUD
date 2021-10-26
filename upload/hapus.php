@@ -7,7 +7,7 @@ if (hapus($id) > 0 ){
     echo "
         <script>
         alert('data telah berhasil dihapus!');
-         document.location.href = 'index.php';
+        document.location.href = 'index.php';
         </script>
         ";
 } else {
